@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by gabriel on 07/03/16.
  */
@@ -12,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OffersController {
 
     @RequestMapping("/")
-    public String showHome(){
+    public String showHome(Model model){
 
-        //model.addAttribute("name", "<b>Tiffany</b>");
+        model.addAttribute("name", "<b>Tiffany</b>");
         return "home";
     }
 }
