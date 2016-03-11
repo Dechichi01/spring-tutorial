@@ -20,6 +20,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- sql prefix -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<!-- spring security tablib -->
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,6 +34,17 @@
 <p><a href="${pageContext.request.contextPath}/offers">Show current offers</a></p>
 <p><a href="${pageContext.request.contextPath}/createoffer">Add a new offer</a></p>
 
+<sec:authorize access="!isAuthenticated()">
+    <p><a href="${pageContext.request.contextPath}/login">Log in</a></p>
+</sec:authorize>
+
+<sec:authorize access="isAuthenticated()">
+    <p><a href="${pageContext.request.contextPath}/j_spring_security_logout">Log out</a></p>
+</sec:authorize>
+
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+    <p><a href="${pageContext.request.contextPath}/admin">Go to the admin page</a></p>
+</sec:authorize>
 </body>
 </html>
 
