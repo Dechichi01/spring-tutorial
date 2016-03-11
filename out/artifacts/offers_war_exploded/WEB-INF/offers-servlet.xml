@@ -13,6 +13,10 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="com.dechichi.spring.web.messages.messages"></property>
+    </bean>
+
     <mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 
 </beans>

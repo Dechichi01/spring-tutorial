@@ -3,6 +3,7 @@ package com.dechichi.spring.web.service;
 import com.dechichi.spring.web.DAO.Offer;
 import com.dechichi.spring.web.DAO.OffersDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,11 +22,9 @@ public class OffersService {
 		return offersDao.getOffers();
 	}
 
+	@Secured({"ROLE_USER", "ROLE_ADMIN"})
 	public void create(Offer offer) {
 		offersDao.create(offer);
 	}
 
-	public void throwTestException() {
-		offersDao.getOffer(99999);
-	}
 }
