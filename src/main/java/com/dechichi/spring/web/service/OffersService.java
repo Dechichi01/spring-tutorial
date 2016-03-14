@@ -11,20 +11,20 @@ import java.util.List;
 @Service("offersService")
 public class OffersService {
 
-	private OffersDAO offersDao;
+    private OffersDAO offersDao;
 
-	@Autowired
-	public void setOffersDao(OffersDAO offersDao) {
-		this.offersDao = offersDao;
-	}
+    @Autowired
+    public void setOffersDao(OffersDAO offersDao) {
+        this.offersDao = offersDao;
+    }
 
-	public List<Offer> getCurrent() {
-		return offersDao.getOffers();
-	}
+    public List<Offer> getCurrent() {
+        return offersDao.getOffers();
+    }
 
-	@Secured({"ROLE_USER", "ROLE_ADMIN"})
-	public void create(Offer offer) {
-		offersDao.create(offer);
-	}
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    public void create(Offer offer) {
+        offersDao.create(offer);
+    }
 
 }
