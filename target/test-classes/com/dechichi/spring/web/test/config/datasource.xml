@@ -7,9 +7,6 @@
     <context:component-scan base-package="com.dechichi.spring.web.test">
     </context:component-scan>
 
-    <context:component-scan base-package="com.dechichi.spring.web.DAO"></context:component-scan>
-    <context:annotation-config></context:annotation-config>
-
     <beans profile="dev">
         <context:property-placeholder
                 location="com/dechichi/spring/web/test/config/jdbc.properties" />
