@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="offers.base" template="/jsps/templates/default.jsp">
+        <put-attribute name="title" value="Offers Homepage"></put-attribute>
+        <put-attribute name="header" value="/jsps/tiles/header.jsp"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/content.jsp"></put-attribute>
+        <put-attribute name="footer" value="/jsps/tiles/footer.jsp"></put-attribute>
+    </definition>
+    <definition name="home" extends="offers.base">
+        <put-attribute name="title" value="Offers Homepage"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/home.jsp"></put-attribute>
+    </definition>
+
+    <definition name="offers" extends="offers.base">
+        <put-attribute name="title" value="Current Offers"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/offers.jsp"></put-attribute>
+    </definition>
+
+    <definition name="login" extends="offers.base">
+        <put-attribute name="title" value="Login"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/login.jsp"></put-attribute>
+    </definition>
+
+    <definition name="accountcreated" extends="offers.base">
+        <put-attribute name="title" value="Account Created"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/accountcreated.jsp"></put-attribute>
+    </definition>
+
+    <definition name="admin" extends="offers.base">
+        <put-attribute name="title" value="Authorised Users Only!"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/admin.jsp"></put-attribute>
+    </definition>
+
+    <definition name="createoffer" extends="offers.base">
+        <put-attribute name="title" value="Create Offer"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/createoffer.jsp"></put-attribute>
+    </definition>
+
+    <definition name="denied" extends="offers.base">
+        <put-attribute name="title" value="Access Denied"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/denied.jsp"></put-attribute>
+    </definition>
+
+    <definition name="error" extends="offers.base">
+        <put-attribute name="title" value="Error"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/error.jsp"></put-attribute>
+    </definition>
+
+
+    <definition name="loggedout" extends="offers.base">
+        <put-attribute name="title" value="Logged Out"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/loggedout.jsp"></put-attribute>
+    </definition>
+
+    <definition name="offercreated" extends="offers.base">
+        <put-attribute name="title" value="Offer Created"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/offercreated.jsp"></put-attribute>
+    </definition>
+</tiles-definitions>
