@@ -22,14 +22,14 @@ import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 @ActiveProfiles("dev")
 @ContextConfiguration(locations = {
-        "classpath*:/../../../web/WEB-INF/config/dao-context.xml",
-        "classpath*:/../../../web/WEB-INF/config/security-context.xml",
+        "classpath*:/com/dechichi/spring/web/test/config/dao-context.xml",
+        "classpath*:/com/dechichi/spring/web/test/config/security-context.xml",
         "classpath*:/com/dechichi/spring/web/test/config/datasource.xml"
 })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserDAOTests {
 
-    @Autowired(required = false)
+    @Autowired
     private UserDAO userDAO;
 
     @Autowired
