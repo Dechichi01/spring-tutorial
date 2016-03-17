@@ -49,7 +49,7 @@ public class OfferDAOTests {
 	}
 
 	@Test
-	public void testCreateUser() {
+	public void testOffers() {
 
 		User user = new User("johnwpurcell", "John Purcell", "hellothere",
 				"john@caveofprogramming.com", true, "user");
@@ -60,6 +60,11 @@ public class OfferDAOTests {
 
 		assertTrue("Offer creation should return true", offersDao.create(offer));
 
+		//Testing querying offer by username
+		List<Offer> userOffers = offersDao.getOffers(user.getUsername());
+		assertEquals("Should be 1 offer for user", 1, userOffers.size());
+
+		//
 		List<Offer> offers = offersDao.getOffers();
 
 		assertEquals("Should be one offer in database.", 1, offers.size());

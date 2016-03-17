@@ -65,4 +65,9 @@
         <put-attribute name="title" value="Offer Created"></put-attribute>
         <put-attribute name="content" value="/jsps/tiles/offercreated.jsp"></put-attribute>
     </definition>
+
+    <definition name="offerdeleted" extends="offers.base">
+        <put-attribute name="title" value="Offer Deleted"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/offerdeleted.jsp"></put-attribute>
+    </definition>
 </tiles-definitions>

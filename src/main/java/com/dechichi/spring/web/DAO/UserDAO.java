@@ -1,5 +1,6 @@
 package com.dechichi.spring.web.DAO;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -15,6 +16,7 @@ import java.util.List;
  * Created by gabriel on 10/03/16.
  */
 
+@Transactional
 @Component("usersDAO")
 public class UserDAO {
 
@@ -22,6 +24,9 @@ public class UserDAO {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @Autowired
     public void setDataSource(DataSource jdbc) {
@@ -50,5 +55,13 @@ public class UserDAO {
 
     public List<User> getAllUsers() {
         return jdbc.query("select * from users", BeanPropertyRowMapper.newInstance(User.class));
+    }
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 }
