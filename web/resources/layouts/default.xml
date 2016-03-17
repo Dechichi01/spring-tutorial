@@ -25,6 +25,11 @@
         <put-attribute name="content" value="/jsps/tiles/login.jsp"></put-attribute>
     </definition>
 
+    <definition name="newaccount" extends="offers.base">
+        <put-attribute name="title" value="New Account"></put-attribute>
+        <put-attribute name="content" value="/jsps/tiles/newaccount.jsp"></put-attribute>
+    </definition>
+
     <definition name="accountcreated" extends="offers.base">
         <put-attribute name="title" value="Account Created"></put-attribute>
         <put-attribute name="content" value="/jsps/tiles/accountcreated.jsp"></put-attribute>

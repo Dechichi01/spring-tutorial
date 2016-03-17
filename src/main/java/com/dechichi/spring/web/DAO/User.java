@@ -21,6 +21,10 @@ public class User {
     @Size(min=8, max=15)
     private String password;
 
+    @NotBlank()
+    @Size(min=8, max=60)
+    private String name;
+
     @ValidEmail
     private String email;
 
@@ -30,9 +34,10 @@ public class User {
 
     }
 
-    public User(String username, String password, String email, boolean enabled, String authority) {
+    public User(String username, String password, String name, String email, boolean enabled, String authority) {
         this.username = username;
         this.password = password;
+        this.name = name;
         this.email = email;
         this.enabled = enabled;
         this.authority = authority;
@@ -76,5 +81,49 @@ public class User {
 
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (isEnabled() != user.isEnabled()) return false;
+        if (!getUsername().equals(user.getUsername())) return false;
+        if (getName() != null ? !getName().equals(user.getName()) : user.getName() != null) return false;
+        if (getEmail() != null ? !getEmail().equals(user.getEmail()) : user.getEmail() != null) return false;
+        return getAuthority() != null ? getAuthority().equals(user.getAuthority()) : user.getAuthority() == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getUsername().hashCode();
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+        result = 31 * result + (isEnabled() ? 1 : 0);
+        result = 31 * result + (getAuthority() != null ? getAuthority().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", enabled=" + enabled +
+                ", authority='" + authority + '\'' +
+                '}';
     }
 }

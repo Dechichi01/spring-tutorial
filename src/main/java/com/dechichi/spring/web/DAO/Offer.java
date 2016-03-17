@@ -2,28 +2,36 @@ package com.dechichi.spring.web.DAO;
 
 public class Offer {
 	private int id;
-	private String name;
-	private String email;
+	private User user;
 	private String text;
 
 	public Offer() {
-
+		this.user = new User();
 	}
 
-	public Offer(String name, String email, String text) {
-		this.name = name;
-		this.email = email;
+	public Offer(User user, String text) {
+		this.user = user;
 		this.text = text;
 	}
 
 
 
-	public Offer(int id, String name, String email, String text) {
-		super();
+	public Offer(int id, User user, String text) {
 		this.id = id;
-		this.name = name;
-		this.email = email;
+		this.user = user;
 		this.text = text;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getUsername(){
+		return user.getUsername();
 	}
 
 	public int getId() {
@@ -32,22 +40,6 @@ public class Offer {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getText() {
@@ -59,9 +51,30 @@ public class Offer {
 	}
 
 	@Override
-	public String toString() {
-		return "Offer [id=" + id + ", name=" + name + ", email=" + email
-				+ ", text=" + text + "]";
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Offer)) return false;
+
+		Offer offer = (Offer) o;
+
+		if (!getUser().equals(offer.getUser())) return false;
+		return getText() != null ? getText().equals(offer.getText()) : offer.getText() == null;
+
 	}
 
+	@Override
+	public int hashCode() {
+		int result = getUser().hashCode();
+		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
+		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "Offer{" +
+				"id=" + id +
+				", user=" + user +
+				", text='" + text + '\'' +
+				'}';
+	}
 }
