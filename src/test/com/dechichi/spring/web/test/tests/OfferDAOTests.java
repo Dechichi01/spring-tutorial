@@ -25,7 +25,6 @@ import com.dechichi.spring.web.DAO.UserDAO;
 
 @ActiveProfiles("dev")
 @ContextConfiguration(locations = {
-		"classpath:com/dechichi/spring/web/test/config/dao-context.xml",
 		"classpath:com/dechichi/spring/web/test/config/security-context.xml",
 		"classpath:com/dechichi/spring/web/test/config/datasource.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -54,7 +53,7 @@ public class OfferDAOTests {
 		User user = new User("johnwpurcell", "John Purcell", "hellothere",
 				"john@caveofprogramming.com", true, "user");
 
-		assertTrue("User creation should return true", usersDao.create(user));
+		usersDao.create(user);
 
 		Offer offer = new Offer(user, "This is a test offer.");
 
